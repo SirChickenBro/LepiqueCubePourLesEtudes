@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
+    public PlayerMovement movement;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,5 +13,13 @@ public class PlayerCollision : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnCollisionEnter (Collision collisionInfo)
+    {
+        if (collisionInfo.collider.tag == "Obstacle")
+        {
+            movement.enabled = false;
+        }
     }
 }
